@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <title>Карта павильона</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    svg {
+      border: 2px solid #aaa;
+      margin-bottom: 20px;
+    }
+    .zone {
+      fill: #cfc;
+      stroke: #333;
+      stroke-width: 2;
+      cursor: pointer;
+    }
+    .zone.occupied {
+      fill: #faa;
+    }
+    #form-container {
+      display: none;
+      border: 1px solid #ccc;
+      padding: 10px;
+      background: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Интерактивная карта фасадов</h2>
+
+<svg width="600" height="200">
+  <rect id="zone1" class="zone" x="20" y="50" width="150" height="100" />
+  <rect id="zone2" class="zone" x="220" y="50" width="150" height="100" />
+  <rect id="zone3" class="zone" x="420" y="50" width="150" height="100" />
+</svg>
+
+<div id="form-container">
+  <h3>Заполните данные</h3>
+  <form id="zone-form">
+    <input type="hidden" id="selectedZone" />
+    <label>Компания: <input type="text" id="company" required /></label>
+    <label>Выставка: <input type="text" id="exhibition" required /></label>
+    <label>Период: <input type="text" id="period" placeholder="напр. 01.08–05.08" required /></label>
+    <label>Менеджер: <input type="text" id="manager" required /></label>
+    <button type="submit">Сохранить</button>
+  </form>
+</div>
+
+<script>
+  const zones = document.querySelectorAll('.zone');
+  const formContainer = document.getElementById('form-container');
+  const form = document.getElementById('zone-form');
+  const selectedZoneInput = document.getElementById('selectedZone');
+
+  const zoneData = {};
+
+  zones.forEach(zone => {
+    zone.addEventListener('click', () => {
+      selectedZoneInput.value = zone.id;
+      form.reset();
+      formContainer.style.display = 'block';
+    });
+  });
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const id = selectedZoneInput.value;
+    const data = {
+      company: document.getElementById('company').value,
+      exhibition: document.getElementById('exhibition').value,
+      period: document.getElementById('period').value,
+      manager: document.getElementById('manager').value,
+    };
+    zoneData[id] = data;
+
+    const zone = document.getElementById(id);
+    zone.classList.add('occupied');
+    zone.title = Занято: ${data.company} (${data.exhibition}), ${data.period}, Менеджер: ${data.manager};
+
+    formContainer.style.display = 'none';
+  });
+</script>
+
+</body>
+</html>
