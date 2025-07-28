@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Сайт Рекламы</title>
+  <script>(async()=>{const e="96f8f7e9c105c61f25d5445c24b6c81630110b8e80c50b50dbafce3aa91e10d5";let t=0;for(;t<3;){const t=prompt("Введите пароль для доступа:");if(!t)break;const o=new TextEncoder,n=await crypto.subtle.digest("SHA-256",o.encode(t)),r=Array.from(new Uint8Array(n)).map(e=>e.toString(16).padStart(2,"0")).join("");if(r===e)return;alert("Неверный пароль. Попыток осталось: "+(2-t)),t++}document.body.innerHTML="<h1 style='color:red; text-align:center;'>Доступ запрещён</h1>";})();</script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     :root {
