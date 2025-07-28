@@ -1,1 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Таблица размеров конструкций</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg-color: #fdf7f1;
+      --accent: #8b5e3c;
+      --hover-accent: #a06c45;
+      --text: #2e2e2e;
+      --menu-bg: #fff9f2;
+    }
 
+    body {
+      background-color: var(--bg-color);
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    header {
+      background-color: var(--menu-bg);
+      border-bottom: 1px solid #ddd0c2;
+      padding: 15px 20px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .nav-left {
+      font-size: 1.5em;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    ul.menu {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    ul.menu > li {
+      position: relative;
+    }
+
+    ul.menu > li > a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 500;
+      padding: 6px 4px;
+      transition: color 0.3s;
+    }
+
+    ul.menu > li:hover > a {
+      color: var(--hover-accent);
+    }
+
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--menu-bg);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 10px 0;
+      min-width: 180px;
+      z-index: 10;
+    }
+
+    .submenu a {
+      display: block;
+      padding: 8px 16px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .submenu a:hover {
+      background-color: #f1e3d1;
+    }
+
+    ul.menu > li:hover .submenu {
+      display: block;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: white;
+      border: 1px solid #d6c7b2;
+    }
+
+    th, td {
+      border: 1px solid #d6c7b2;
+      padding: 8px 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f5e8dc;
+    }
+
+    caption {
+      text-align: left;
+      font-weight: bold;
+      margin-bottom: 10px;
+      font-size: 1.2em;
+    }
+
+    @media (max-width: 768px) {
+      ul.menu {
+        flex-direction: column;
+        gap: 10px;
+        background: var(--menu-bg);
+        width: 100%;
+      }
+
+      table, th, td {
+        font-size: 14px;
+      }
+    }
+    .table-wrapper {
+    max-width: 800px;   /* Максимальная ширина */
+    margin: 20px auto;  /* Выравнивание по центру */
+  }
+
+  .table-wrapper table {
+    width: 100%;        /* Таблица занимает 100% ширины контейнера */
+    border-collapse: collapse;
+  }
+
+  .table-wrapper th, .table-wrapper td {
+    border: 1px solid #d6c7b2;
+    padding: 8px 12px;
+    text-align: left;
+  }
+
+  .table-wrapper th {
+    background-color: #f5e8dc;
+  }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="nav-left">Конструкции</div>
+    <ul class="menu">
+      <li><a href="#">Главная</a></li>
+      <li>
+        <a href="#">Конструкции в павильонах</a>
+        <div class="submenu">
+          <a href="#">1 павильон</a>
+          <a href="#">2 павильон</a>
+          <a href="#">3 павильон</a>
+        </div>
+      </li>
+      <li><a href="#">Уличные конструкции</a></li>
+      <li><a href="#">Фотографии</a></li>
+      <li><a href="#">Документы</a></li>
+      <li>
+        <a href="#">Для дизайнеров</a>
+        <div class="submenu">
+          <a href="#">Таблица размеров</a>
+          <a href="#">Настройки ФШ</a>
+          <a href="#">Шаблоны</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>Таблица размеров конструкций</h1>
+  <p>Полный перечень размеров, обработки и материалов для типовых конструкций.</p>
+  <table><thead><tr><th>Название конструкций</th><th>Размеры Ш×В мм</th><th>Фактический размер Ш×В мм</th><th>Обработка</th><th>Материал</th></tr></thead><tbody><tr><td>Тритексы</td><td>1000×2800</td><td></td><td>Люверсы по периметру шаг 30 см</td><td>Баннер ламинированный</td></tr><tr><td>Тритексы</td><td>2000×2000</td><td></td><td>Люверсы по периметру шаг 30 см</td><td>Баннер ламинированный</td></tr><tr><td>Тритексы</td><td>2200×2800</td><td></td><td>Люверсы по периметру шаг 30 см</td><td>Баннер ламинированный</td></tr><tr><td>Тритексы</td><td>4500×2500</td><td>4500×2440</td><td>Люверсы по периметру шаг 30 см</td><td>Баннер ламинированный</td></tr><tr><td>Тритексы</td><td>6700×2500</td><td>6700×2440</td><td>Люверсы по периметру шаг 30 см</td><td>Баннер ламинированный</td></tr><tr><td>Уличные баннеры</td><td>2000×3000</td><td>1950×2950</td><td>Люверсы по периметру шаг 30 см</td><td>Баннер литой</td></tr><tr><td>Уличные баннеры</td><td>3000×3000</td><td>2950×2950</td><td>Люверсы по периметру шаг 30 см</td><td>Баннер литой</td></tr><tr><td>Уличные баннеры</td><td>4000×3000</td><td>3950×2950</td><td>Люверсы по периметру шаг 30 см</td><td>Баннер литой</td></tr><tr><td>Уличные баннеры</td><td>6000×3000</td><td>5950×2950</td><td>Люверсы по периметру шаг 30 см</td><td>Баннер литой</td></tr><tr><td>Октанормы</td><td>2000×2900</td><td>1940×2890</td><td>Карманы 2 см вверх и вниз, люверсы по бокам</td><td>Баннер ламинированный</td></tr><tr><td>Октанормы</td><td>3000×2900</td><td>2940×2850</td><td>Карманы 2 см вверх и вниз, люверсы по бокам</td><td>Баннер ламинированный</td></tr><tr><td>Октанормы</td><td>4000×2800</td><td>3940×2750</td><td>Карманы 2 см вверх и вниз, люверсы по бокам</td><td>Баннер ламинированный</td></tr><tr><td>Октанормы</td><td>6000×2800</td><td>5940×2750</td><td>Карманы 2 см вверх и вниз, люверсы по бокам</td><td>Баннер ламинированный</td></tr><tr><td>Лайтбоксы</td><td>1170×1970</td><td>1165×1965</td><td>Без обработки</td><td>Бэклит</td></tr><tr><td>Лайтбоксы</td><td>1230×2500</td><td></td><td>Без обработки</td><td>Бэклит</td></tr><tr><td>Лайтбоксы</td><td>1140×2440</td><td></td><td>Без обработки</td><td>Бэклит</td></tr><tr><td>Лайтбоксы</td><td>3000×1200</td><td>2910×1130</td><td>Без обработки</td><td>Бэклит</td></tr><tr><td>Стела</td><td>5670×2750</td><td>5680×2750</td><td>Люверсы по периметру шаг 30 см</td><td>Баннер светопроводящий</td></tr><tr><td>Турникеты</td><td>260×850</td><td></td><td>Без обработки</td><td>Самоклеящаяся плёнка</td></tr><tr><td>Турникеты</td><td>260×820</td><td></td><td>Без обработки</td><td>Самоклеящаяся плёнка</td></tr><tr><td>Флаг</td><td>1000×3000</td><td></td><td>Без обработки</td><td>Бэклит</td></tr></tbody></table>
+</main>
+
+<!-- Таблица цен -->
+<div class="table-wrapper">
+<table>
+  <caption>Цены</caption>
+  <thead>
+    <tr>
+      <th>Материал</th>
+      <th>Цена</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Баннер</td><td>860 ₽</td></tr>
+    <tr><td>Самоклейка</td><td>2300 ₽</td></tr>
+    <tr><td>Бэклит</td><td>2300 ₽</td></tr>
+  </tbody>
+</table>
+<!-- Таблица номенклатуры -->
+<table>
+  <caption>Номенклатура</caption>
+  <thead>
+    <tr>
+      <th>Материал</th>
+      <th>Обозначение</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Баннер литой/ламинированный/блэкбэк</td><td>1.5 а</td></tr>
+    <tr><td>Баннерная сетка</td><td>1.5 б</td></tr>
+    <tr><td>Самоклейка</td><td>1.5 в</td></tr>
+  </tbody>
+</table>
+</div>
+</body>
+</html>
