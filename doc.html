@@ -1,1 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Документы</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg-color: #fdf7f1;
+      --accent: #8b5e3c;
+      --hover-accent: #a06c45;
+      --text: #2e2e2e;
+      --menu-bg: #fff9f2;
+    }
 
+    body {
+      background-color: var(--bg-color);
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    header {
+      background-color: var(--menu-bg);
+      border-bottom: 1px solid #ddd0c2;
+      padding: 15px 20px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .nav-left {
+      font-size: 1.5em;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
+    ul.menu {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    ul.menu > li {
+      position: relative;
+    }
+
+    ul.menu > li > a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 500;
+      padding: 6px 4px;
+      transition: color 0.3s;
+    }
+
+    ul.menu > li:hover > a {
+      color: var(--hover-accent);
+    }
+
+    .submenu {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--menu-bg);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 10px 0;
+      min-width: 180px;
+      z-index: 10;
+    }
+
+    .submenu a {
+      display: block;
+      padding: 8px 16px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .submenu a:hover {
+      background-color: #f1e3d1;
+    }
+
+    ul.menu > li:hover .submenu {
+      display: block;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .doc-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .doc-item {
+      background: white;
+      border: 1px solid #d6c7b2;
+      padding: 16px 20px;
+      border-radius: 6px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .doc-item:hover {
+      background: #f9f2e7;
+      transform: translateY(-2px);
+    }
+
+    .doc-item a {
+      color: var(--accent);
+      font-weight: 500;
+      font-size: 1.1em;
+      text-decoration: none;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="nav-left">Конструкции</div>
+    <ul class="menu">
+      <li><a href="#">Главная</a></li>
+      <li>
+        <a href="#">Конструкции в павильонах</a>
+        <div class="submenu">
+          <a href="#">1 павильон</a>
+          <a href="#">2 павильон</a>
+          <a href="#">3 павильон</a>
+        </div>
+      </li>
+      <li><a href="#">Уличные конструкции</a></li>
+      <li><a href="#">Фотографии</a></li>
+      <li><a href="https://mrrioaa.github.io/reklama/doc">Документы</a></li>
+      <li>
+        <a href="#">Для дизайнеров</a>
+        <div class="submenu">
+          <a href="https://mrrioaa.github.io/reklama/table">Таблица размеров</a>
+          <a href="#">Настройки ФШ</a>
+          <a href="#">Шаблоны</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h1>Документы</h1>
+
+  <div class="doc-list">
+    <div class="doc-item"><a href="#">📁 Справочник</a></div>
+    <div class="doc-item"><a href="#">📁 Презентация</a></div>
+    <div class="doc-item"><a href="#">📁 Схемы</a></div>
+  </div>
+</main>
+
+</body>
+</html>
