@@ -1,99 +1,144 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8" />
-  <title>Карта павильона</title>
+  <meta charset="UTF-8">
+  <title>Сайт Рекламы</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
+    :root {
+      --bg-color: #fdf7f1;
+      --accent: #8b5e3c;
+      --hover-accent: #a06c45;
+      --text: #2e2e2e;
+      --menu-bg: #fff9f2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      font-family: sans-serif;
-      background: #f4f4f4;
+      background-color: var(--bg-color);
+      color: var(--text);
+      font-family: 'Segoe UI', sans-serif;
+      line-height: 1.6;
+    }
+
+    header {
+      background-color: var(--menu-bg);
+      border-bottom: 1px solid #ddd0c2;
+      padding: 15px 20px;
+    }
+
+    nav {
       display: flex;
-      flex-direction: column;
+      flex-wrap: wrap;
       align-items: center;
-      padding: 20px;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
     }
-    svg {
-      border: 2px solid #aaa;
-      margin-bottom: 20px;
+
+    .nav-left {
+      font-size: 1.5em;
+      color: var(--accent);
+      font-weight: bold;
     }
-    .zone {
-      fill: #cfc;
-      stroke: #333;
-      stroke-width: 2;
-      cursor: pointer;
+
+    ul.menu {
+      list-style: none;
+      display: flex;
+      gap: 20px;
     }
-    .zone.occupied {
-      fill: #faa;
+
+    ul.menu > li {
+      position: relative;
     }
-    #form-container {
+
+    ul.menu > li > a {
+      text-decoration: none;
+      color: var(--accent);
+      font-weight: 500;
+      padding: 6px 4px;
+      transition: color 0.3s;
+    }
+
+    ul.menu > li:hover > a {
+      color: var(--hover-accent);
+    }
+
+    .submenu {
       display: none;
-      border: 1px solid #ccc;
-      padding: 10px;
-      background: #fff;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: var(--menu-bg);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      padding: 10px 0;
+      min-width: 180px;
+      z-index: 10;
     }
-    label {
+
+    .submenu a {
       display: block;
-      margin-top: 10px;
+      padding: 8px 16px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    .submenu a:hover {
+      background-color: #f1e3d1;
+    }
+
+    ul.menu > li:hover .submenu {
+      display: block;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    @media (max-width: 768px) {
+      ul.menu {
+        flex-direction: column;
+        gap: 10px;
+        background: var(--menu-bg);
+        width: 100%;
+      }
     }
   </style>
 </head>
 <body>
 
-<h2>Интерактивная карта фасадов</h2>
+<header>
+  <nav>
+    <div class="nav-left">Реклама Крокус</div>
+    <ul class="menu">
+      <li><a href="#">Главная</a></li>
+      <li>
+        <a href="#">Конструкции в павильонах</a>
+        <div class="submenu">
+          <a href="#">1 павильон</a>
+          <a href="#">2 павильон</a>
+          <a href="#">3 павильон</a>
+        </div>
+      </li>
+      <li><a href="#">Уличные конструкции</a></li>
+      <li><a href="#">Фотографии</a></li>
+      <li><a href="#">Документы</a></li>
+      <li><a href="#">Для дизайнеров</a></li>
+    </ul>
+  </nav>
+</header>
 
-<svg width="600" height="200">
-  <rect id="zone1" class="zone" x="20" y="50" width="150" height="100" />
-  <rect id="zone2" class="zone" x="220" y="50" width="150" height="100" />
-  <rect id="zone3" class="zone" x="420" y="50" width="150" height="100" />
-</svg>
-
-<div id="form-container">
-  <h3>Заполните данные</h3>
-  <form id="zone-form">
-    <input type="hidden" id="selectedZone" />
-    <label>Компания: <input type="text" id="company" required /></label>
-    <label>Выставка: <input type="text" id="exhibition" required /></label>
-    <label>Период: <input type="text" id="period" placeholder="напр. 01.08–05.08" required /></label>
-    <label>Менеджер: <input type="text" id="manager" required /></label>
-    <button type="submit">Сохранить</button>
-  </form>
-</div>
-
-<script>
-  const zones = document.querySelectorAll('.zone');
-  const formContainer = document.getElementById('form-container');
-  const form = document.getElementById('zone-form');
-  const selectedZoneInput = document.getElementById('selectedZone');
-
-  const zoneData = {};
-
-  zones.forEach(zone => {
-    zone.addEventListener('click', () => {
-      selectedZoneInput.value = zone.id;
-      form.reset();
-      formContainer.style.display = 'block';
-    });
-  });
-
-  form.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const id = selectedZoneInput.value;
-    const data = {
-      company: document.getElementById('company').value,
-      exhibition: document.getElementById('exhibition').value,
-      period: document.getElementById('period').value,
-      manager: document.getElementById('manager').value,
-    };
-    zoneData[id] = data;
-
-    const zone = document.getElementById(id);
-    zone.classList.add('occupied');
-    zone.title = Занято: ${data.company} (${data.exhibition}), ${data.period}, Менеджер: ${data.manager};
-
-    formContainer.style.display = 'none';
-  });
-</script>
+<main>
+  <h1>Добро пожаловать</h1>
+  <p>Внутренний корпоративный сайт для управления конструкциями на территории выставки.</p>
+</main>
 
 </body>
 </html>
