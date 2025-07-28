@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
+  <script>document.documentElement.innerHTML="";(async()=>{const e="96f8f7e9c105c61f25d5445c24b6c81630110b8e80c50b50dbafce3aa91e10d5";let t=0,a=!1;for(;t<3;t++){const o=prompt("Введите пароль для доступа:");if(!o)continue;const n=new TextEncoder,r=await crypto.subtle.digest("SHA-256",n.encode(o)),c=Array.from(new Uint8Array(r)).map(e=>e.toString(16).padStart(2,"0")).join("");if(c===e){a=!0;break}else alert("Неверный пароль. Попыток осталось: "+(2-t))}if(a){location.reload()}else document.documentElement.innerHTML="<h1 style='color:red;text-align:center;margin-top:20%'>Доступ запрещён</h1>";})();</script>
   <meta charset="UTF-8">
   <title>Таблица размеров конструкций</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
